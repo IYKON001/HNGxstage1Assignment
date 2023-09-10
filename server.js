@@ -24,8 +24,8 @@ server.get('/api', (req,res) =>{
 
     const response ={
         slack_name,
-        current_day: new Date().toISOString('en-US',{timeZone: 'Africa/Lagos' ,weekday: 'long'}),
-        utc_time: new Date().toISOString().replace(/\.\d{3}$/,'Z'),
+        current_day: new Date().toLocaleDateString('en-NG', { weekday: 'long'}),
+        utc_time: new Date().toISOString().split(".")[0] + "Z",
         track,
         github_file_url: githubUrlFile,
         github_repo_url: githubUrlSource,
