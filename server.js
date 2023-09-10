@@ -16,8 +16,7 @@ server.get('/', (req,res) =>{
 server.get('/api', (req,res) =>{
     const { slack_name, track } = req.query;
 
-    const currentDay = new Date().toLocaleDateString('en-NG', { weekday: 'long'});
-    const currentUtcTime = new Date().toISOString();
+    
 
   
     const githubUrlFile = "https://github.com/IYKON001/HNGxstage1Assignment/blob/main/server.js";
@@ -25,8 +24,8 @@ server.get('/api', (req,res) =>{
 
     const response ={
         slack_name,
-        current_day: currentDay,
-        utc_time: currentUtcTime,
+        current_day: new Date().toISOString('en-US',{timeZone: 'Africa/Lagos' ,weekday: 'long'}),
+        utc_time: new Date().toISOString().replace(/\.\d{3}$/,'Z'),
         track,
         github_file_url: githubUrlFile,
         github_repo_url: githubUrlSource,
