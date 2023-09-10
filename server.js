@@ -25,11 +25,11 @@ server.get('/get_time', (req,res) =>{
 
 server.get('/github_info', (req,res) =>{
 
-    const githubUrlFile = 'https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/YOUR_FILE';
-    const githubUrlSource = 'https://github.com/YOUR_USERNAME/YOUR_REPO';
+    const githubUrlFolder = "https://github.com/IYKON001/HNGxstage1Assignment"
+    const githubUrlSource = "https://github.com/IYKON001/HNGxstage1Assignment/blob/main/server.js"
 
     const response ={
-        github_url_file: githubUrlFile,
+        github_url_folder: githubUrlFolder,
         github_url_source: githubUrlSource
     }
     res.json(response)
