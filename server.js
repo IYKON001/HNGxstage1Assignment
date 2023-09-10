@@ -16,21 +16,21 @@ server.get('/', (req,res) =>{
 server.get('/api', (req,res) =>{
     const { slack_name, track } = req.query;
 
-    const currentDay = new Date().toLocaleDateString('en-NG', { weekday: 'short'});
+    const currentDay = new Date().toLocaleDateString('en-NG', { weekday: 'long'});
     const currentUtcTime = new Date().toISOString();
 
-    //get github url's
+  
     const githubUrlFile = "https://github.com/IYKON001/HNGxstage1Assignment/blob/main/server.js";
     const githubUrlSource = "https://github.com/IYKON001/HNGxstage1Assignment";
 
     const response ={
         slack_name,
         current_day: currentDay,
-        current_utc_time: currentUtcTime,
+        utc_time: currentUtcTime,
         track,
+        github_file_url: githubUrlFile,
+        github_repo_url: githubUrlSource,
         status_code: 200,
-        github_url_file: githubUrlFile,
-        github_url_source: githubUrlSource
     };
     res.json(response);
 });
